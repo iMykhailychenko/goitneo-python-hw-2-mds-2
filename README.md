@@ -1,6 +1,10 @@
 # GoitNeo python homework 2 (MDS 2)
 
-https://github.com/iMykhailychenko/goitneo-python-hw-2-mds-2/raw/main/docs/video.mov
+
+
+https://github.com/iMykhailychenko/goitneo-python-hw-2-mds-2/assets/50461642/6c4638c3-a799-4f33-8d00-a5d0276e1b4e
+
+
 
 ### To run the project
 

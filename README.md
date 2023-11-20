@@ -1,6 +1,6 @@
 # GoitNeo python homework 2 (MDS 2)
 
-![app](./docs/video.mov)
+https://github.com/iMykhailychenko/goitneo-python-hw-2-mds-2/docs/video.mov
 
 ### To run the project
 

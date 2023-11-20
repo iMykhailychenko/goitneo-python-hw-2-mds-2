@@ -9,13 +9,13 @@ class Field:
         self.value: str = value
 
     def __str__(self) -> str:
-        return str(self.value)
+        return self.value
 
     def __eq__(self, other: object) -> bool:
-        return isinstance(other, Field) and self.value == other.value
+        return hasattr(other, "value") and self.value == other.value
 
     def __ne__(self, other: object) -> bool:
-        return not isinstance(other, Field) or self.value != other.value
+        return not hasattr(other, "value") or self.value != other.value
 
     def __hash__(self) -> int:
         return hash(self.value)
@@ -61,8 +61,8 @@ class Record:
         self.phones.discard(Phone(old_phone))
         self.phones.add(Phone(new_phone))
 
-    def find_phone(self, query: str) -> Phone:
-        return [phone for phone in self.phones if phone.value.lower() in query.lower()]
+    def find_phone(self, query: str) -> list[Phone]:
+        return [phone for phone in self.phones if query in phone.value]
 
 
 class AddressBook(UserDict[Name, Record]):
@@ -79,5 +79,8 @@ class AddressBook(UserDict[Name, Record]):
         else:
             self.data[name] = contact
 
-    def find_contact(self, name: str) -> Optional[Record]:
+    def find(self, name: str) -> Optional[Record]:
         return self.data.get(Name(name), None)
+
+    def delete(self, name: str) -> None:
+        del self.data[Name(name)]

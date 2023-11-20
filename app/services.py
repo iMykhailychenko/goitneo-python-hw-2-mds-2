@@ -20,7 +20,7 @@ def add_contact(args: list, contacts: AddressBook) -> str:
 def change_contact(args: list, contacts: AddressBook) -> str:
     name, old_phone, new_phone = args
 
-    record = contacts.find_contact(name)
+    record = contacts.find(name)
     if record:
         record.edit_phone(old_phone, new_phone)
         return "Contact changed."
@@ -29,7 +29,7 @@ def change_contact(args: list, contacts: AddressBook) -> str:
 
 
 def get_contact(args: list, contacts: AddressBook) -> str:
-    return str(contacts.find_contact(args[0]) or "Contact not found.")
+    return str(contacts.find(args[0]) or "Contact not found.")
 
 
 def get_all_contacts(contacts: AddressBook) -> str:
